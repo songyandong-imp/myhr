@@ -1,6 +1,6 @@
 # CAP myhr
 _out
-*.db
+#*.db
 *.sqlite
 connection.properties
 default-*.json
