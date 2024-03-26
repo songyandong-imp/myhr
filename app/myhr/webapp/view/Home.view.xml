@@ -1,0 +1,4 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.myhr.controller.Home"
+    displayBlock="true" xmlns="sap.m">
+<Text text="home page"></Text>
+</mvc:View>

@@ -1,0 +1,57 @@
+<mvc:View controllerName="com.sap.myhr.controller.App"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:tnt="sap.tnt"
+    xmlns="sap.m">
+    <tnt:ToolPage
+        id="app"
+        class="sapUiDemoToolPage">
+        <tnt:header>
+            <tnt:ToolHeader>
+                <Button
+                    id="sideNavigationToggleButton"
+                    icon="sap-icon://menu2"
+                    type="Transparent"
+                    press=".onSideNavButtonPress"
+                    tooltip="{i18n>collpaseMenuButtonText}">
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="NeverOverflow" />
+                    </layoutData>
+                </Button>
+                <ToolbarSpacer />
+                <Title
+                    text="{i18n>appTitle}"
+                    level="H2" />
+                <ToolbarSpacer />
+            </tnt:ToolHeader>
+        </tnt:header>
+        <tnt:sideContent>
+            <tnt:SideNavigation
+                expanded="true"
+                selectedKey="">
+
+                <tnt:fixedItem>
+                    <tnt:NavigationList
+                        items="{
+							path: '/FixMenu',
+							templateShareable: false
+						}">
+                        <tnt:NavigationListItem
+                            text="{path:'description',formatter:'.getBundleText'}"
+                            items="{path:'items',templateShareable: false}"
+                            icon="{icon}"
+                            key="{id}">
+                            <tnt:NavigationListItem
+                                text="{path:'description',formatter:'.getBundleText'}"
+                                key="{pos}" 
+                                href="#/{target}">
+                            </tnt:NavigationListItem>
+                        </tnt:NavigationListItem>
+                    </tnt:NavigationList>
+                </tnt:fixedItem>
+            </tnt:SideNavigation>
+        </tnt:sideContent>
+        <tnt:mainContents>
+            <App id="mainContents" />
+        </tnt:mainContents>
+    </tnt:ToolPage>
+</mvc:View>

@@ -1,0 +1,1 @@
+using MenuService as service from '../../srv/menu-service';
