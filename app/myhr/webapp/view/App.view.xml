@@ -1,7 +1,7 @@
 <mvc:View controllerName="com.sap.myhr.controller.App"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns:tnt="sap.tnt"
-    xmlns="sap.m">
+    xmlns="sap.m" busy="{appView>/busy}" busyIndicatorDelay="{appView>/delay}">
     <tnt:ToolPage
         id="app"
         class="sapUiDemoToolPage">
@@ -18,9 +18,9 @@
                     </layoutData>
                 </Button>
                 <ToolbarSpacer />
-                <Title
+                <!-- <Title
                     text="{i18n>appTitle}"
-                    level="H2" />
+                    level="H2" /> -->
                 <ToolbarSpacer />
             </tnt:ToolHeader>
         </tnt:header>
@@ -28,7 +28,28 @@
             <tnt:SideNavigation
                 expanded="true"
                 selectedKey="">
-
+                <tnt:NavigationList
+                    items="{
+						path: 'side>/menu',
+						templateShareable: false
+					}">
+                    <tnt:NavigationListItem
+                        text="{path: 'side>titleI18nKey', formatter: '.getBundleText'}"
+                        icon="{side>icon}"
+                        expanded="{side>expanded}"
+                        items="{
+							path: 'side>children',
+							templateShareable: false
+						}"
+                        key="{side>id}"
+                        href="#/{side>target}">
+                        <tnt:NavigationListItem
+                            text="{path: 'side>titleI18nKey', formatter: '.getBundleText'}"
+                            key="{side>id}"
+                            href="#/{side>target}">
+                        </tnt:NavigationListItem>
+                    </tnt:NavigationListItem>
+                </tnt:NavigationList>
                 <tnt:fixedItem>
                     <tnt:NavigationList
                         items="{
@@ -36,13 +57,13 @@
 							templateShareable: false
 						}">
                         <tnt:NavigationListItem
-                            text="{path:'description',formatter:'.getBundleText'}"
+                            text="{path:'titleI18nKey',formatter:'.getBundleText'}"
                             items="{path:'items',templateShareable: false}"
                             icon="{icon}"
                             key="{id}">
                             <tnt:NavigationListItem
-                                text="{path:'description',formatter:'.getBundleText'}"
-                                key="{pos}" 
+                                text="{path:'titleI18nKey',formatter:'.getBundleText'}"
+                                key="{pos}"
                                 href="#/{target}">
                             </tnt:NavigationListItem>
                         </tnt:NavigationListItem>

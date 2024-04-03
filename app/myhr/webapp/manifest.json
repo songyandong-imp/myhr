@@ -51,6 +51,7 @@
       "id": "app"
     },
     "flexEnabled": false,
+    "handleValidation": true,
     "dependencies": {
       "minUI5Version": "1.84.44",
       "libs": {
@@ -74,6 +75,7 @@
         "settings": {
           "bundleName": "com.sap.myhr.i18n.i18n",
           "async": true,
+					"fallbackLocale": "zh",
           "supportedLocales": [
             "en",
             "zh"
@@ -128,7 +130,7 @@
         },
         "menu": {
           "viewId": "menu",
-          "viewName": "Menu"
+          "viewName": "/settings/menu"
         }
       }
     }

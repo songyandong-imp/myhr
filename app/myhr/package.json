@@ -1,7 +1,7 @@
 {
     "name": "myhr",
     "version": "0.0.1",
-    "description": "my hr fiori application.",
+    "description": "人事管理系统",
     "keywords": [
         "ui5",
         "openui5",

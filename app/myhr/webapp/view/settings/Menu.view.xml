@@ -1,0 +1,77 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:semantic="sap.m.semantic" xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.myhr.controller.settings.Menu"
+    displayBlock="true" xmlns:layout="sap.ui.layout">
+    <Page title="菜单管理" titleAlignment="Center">
+        <content>
+            <form:SimpleForm id="menuForm"
+                layout="ResponsiveGridLayout"
+                singleContainerFullSize="false"
+                labelSpanXL="4"
+                labelSpanL="4"
+                labelSpanM="4"
+                labelSpanS="12"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                editable="true"
+            >
+                <form:content>
+                    <Label text="菜单ID" labelFor="menu_id" required="true" />
+                    <Input id="menu_id"
+                        value="{path:'id',
+                                type:'sap.ui.model.type.Integer',
+                                constraints:{minimum:1,
+                                            maximum:9999}
+                                }" />
+                    <Label text="菜单名称" labelFor="menu_name" required="true" />
+                    <Input id="menu_name"
+                        value="{path:'description',
+                                type:'sap.ui.model.type.String',
+                                constraints:{maxLength:50}
+                                }"
+                    />
+                    <Label text="菜单图标地址" labelFor="menu_icon" />
+                    <Input id="menu_icon"
+                        value="{ path:'icon',
+                                 type:'sap.ui.model.type.String' ,
+                                 constraints:{maxLength:50} }" />
+                    <Label text="目标页面" />
+                    <Input id="target_page"
+                        value="{path:'target',type:'sap.ui.model.type.String',constraints:{maxLength:50}}" />
+
+                    <Label text="上级菜单ID" labelFor="parent_id" />
+                    <Input id="parent_id"
+                        textFormatMode="KeyValue"
+                        placeholder="{i18n>menuForm_parent_id_placeholder}"
+                        showValueHelp="true"
+                        valueHelpRequest=".onValueHelpRequested"
+                        showSuggestion="true"
+                        suggestionItems="{/Menu}"
+                        suggestionItemSelected=""
+                        selectedKey="{
+                            path:'pid',
+                            type:'sap.ui.model.type.Integer',
+                            constraints:{minimum:1,maximum:9999}
+                            }"
+                    >
+                        <suggestionItems>
+                            <core:ListItem key="{id}" text="{description}" />
+                        </suggestionItems>
+                    </Input>
+
+                </form:content>
+            </form:SimpleForm>
+
+        </content>
+        <footer>
+            <OverflowToolbar id="toolbar">
+                <ToolbarSpacer />
+                <Button text="保存" id="save" press="onSave" type="Emphasized" width="4rem" />
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

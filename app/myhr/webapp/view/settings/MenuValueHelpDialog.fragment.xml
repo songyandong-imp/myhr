@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns:table="sap.ui.table"
+    xmlns:valuehelpdialog="sap.ui.comp.valuehelpdialog"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog id="valueHelpDialog">
+        <content>
+
+            <table:TreeTable
+                id="menu_tree_table"
+                selectionMode="Single"
+                enableColumnReordering="false"
+                width="auto"
+                rows="{ 
+                path:'/Menu',
+                parameters:{
+                    countMode: 'Inline',
+                    treeAnnotationProperties: {
+                        hierarchyLevelFor : 'hierarchyLevel',
+                        hierarchyNodeFor : 'id',
+                        hierarchyParentNodeFor : 'pid',
+                        hierarchyDrillStateFor : 'drillState'
+                    }
+                }
+             }"
+            >
+                <table:columns>
+                    <table:Column label="菜单">
+                        <table:template>
+                            <Text text="{description}" textAlign="Center"></Text>
+                        </table:template>
+                    </table:Column>
+                </table:columns>
+
+
+            </table:TreeTable>
+        </content>
+        <beginButton>
+            <Button text="确定" press=".onValueHelpOkPress" />
+        </beginButton>
+        <endButton>
+            <Button text="取消" press=".onValueHelpCancelPress" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

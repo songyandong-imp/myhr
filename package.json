@@ -23,8 +23,7 @@
         "kind": "sqlite",
         "credentials": {
           "url": "./db/myhr.db"
-        },
-        "schema_evolution": "auto"
+        }
       }
     }
   }
