@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form" xmlns:layout="sap.ui.layout"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <layout:VerticalLayout class="sapUiSmallMargin">
+        <form:SimpleForm id="form" 
+            width="100%" 
+            labelSpanXL="4"
+            labelSpanL="4" 
+            labelSpanM="4" 
+            labelSpanS="12"
+            columnsXL="3" 
+            columnsL="2" 
+            columnsM="2" 
+            title="JD基础表">
+            <form:content>
+                <Label text="岗位" />
+                <Input id="postion"/>
+                <Label text="部门" />
+                <Input id="department"/>
+                <Label text="岗位职责"/>
+                <TextArea id="duty" width="100%" maxLength="50" />
+
+            </form:content>
+        </form:SimpleForm>
+    </layout:VerticalLayout>
+</core:FragmentDefinition>

@@ -25,17 +25,17 @@ sap.ui.define([
                     oViewModel.setProperty("/busy", false);
                     oViewModel.setProperty("/delay", iOriginalBusyDelay);
                 };
+                var oSideModel = new JSONModel({
+                    selectedKey: "",
+                    menu: {}
+                });
+                this.setModel(oSideModel, "side");
                 this.getOwnerComponent().getModel().metadataLoaded()
                     .then(fnSetAppNotBusy);
                 this.getOwnerComponent().getModel().read("/Menu", {
                     success: function (oData) {
-                        const oMenu = this.transTree(oData.results);
-
-                        var oSideModel = new JSONModel({
-                            selectedKey: "",
-                            menu: oMenu
-                        });
-                        this.setModel(oSideModel, "side");
+                        const oMenu = this._transTree(oData.results);
+                        this.getModel("side").setProperty("/menu", oMenu);
                     }.bind(this), error: function (oError) {
 
                     }
@@ -47,13 +47,14 @@ sap.ui.define([
 
 
             },
+
             onRouteChange: function (oEvent) {
                 var sName = oEvent.getParameter('name');
                 this.getModel('side').setProperty('/selectedKey', sName);
 
-                if (Device.system.phone) {
-                    this.onSideNavButtonPress();
-                }
+                // if (Device.system.phone) {
+                //     this.onSideNavButtonPress();
+                // }
             },
             /**
              * Returns a promises which resolves with the resource bundle value of the given key <code>sI18nKey</code>
@@ -69,9 +70,10 @@ sap.ui.define([
             /**
              * transform menu data to tree structure
              * @param {Array} aData Menu data
+             * @private
              * @returns 
              */
-            transTree: function (aData) {
+            _transTree: function (aData) {
                 const aResult = [];
                 const oMap = {};
                 // check aData is Array

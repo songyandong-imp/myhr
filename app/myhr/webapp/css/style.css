@@ -1,1 +1,24 @@
 /* Enter your custom styles here */
+/* .mycell>.sapUiBlockCellContent {
+    background-image: url("../images/5b3cb015-de4a-4caa-a849-5a7a96a992e7.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+} */
+
+.myFlexBox {
+    background-image: url("../images/5b3cb015-de4a-4caa-a849-5a7a96a992e7.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* background-color: aqua; */
+}
+
+.myHomeTitle.sapMTitle {
+    color: rgb(237, 237, 239);
+    font-weight: bold;
+}
+
+.tileLayout {
+    float: left;
+}

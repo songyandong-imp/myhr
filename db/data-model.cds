@@ -29,3 +29,11 @@ entity Menu {
         icon         : String(50);
         pid          : Integer;
 }
+entity JdBase {
+    key id           : Integer;
+        position  : String(50);
+        dept:String(50);
+        desc:String(50);
+        user : String(50);
+  
+}

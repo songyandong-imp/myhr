@@ -1,0 +1,15 @@
+{
+    "ActionSet": {
+        "Data": [
+            {
+                "Key": "A",
+                "Value": "仅添加数据"
+            },
+            {
+                "Key": "B",
+                "Value": "管理全部数据"
+            }
+        ],
+        "Default": "B"
+    }
+}

@@ -1,0 +1,53 @@
+<mvc:XMLView xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+    controllerName="com.sap.myhr.controller.recruitManagerment.recruitPage" xmlns="sap.m"
+    xmlns:table="sap.ui.table">
+    <Page id="recruitPage">
+        <headerContent>
+            <OverflowToolbar width="100%">
+                <FlexBox alignItems="Center" justifyContent="Start" width="100%">
+                    <!-- <ActionSelect id="recruitPage_actionSelect" change="onChangeActionSelect"
+                        items="{ path:'actionModel>/ActionSet/Data',sorter:{path:'Key'} }"
+                        selectedKey="{actionModel>/ActionSet/Default}">
+                        <items>
+                            <core:Item key="{actionModel>Key}" text="{actionModel>Value}" />
+                        </items>
+                    </ActionSelect> -->
+                    <ToolbarSpacer />
+                    <Button id="saveButton" text="Save" press=".onSave"/>
+                    <Button id="uploadButton" text="Upload" press=".onUpload"/>
+                    <Button id="export" text="Export" press=".onExport"/>
+                </FlexBox>
+            </OverflowToolbar>
+        </headerContent>
+        <content>
+            <table:Table id="customerTable"
+                rows="{/Menu}"
+                selectionMode="MultiToggle"
+                visibleRowCount="7"
+                paste="onPaste"
+                ariaLabelledBy="title">
+                <table:extension>
+                    <OverflowToolbar>
+                        <Title id="title" text="Products" />
+                    </OverflowToolbar>
+                </table:extension>
+                <table:columns>
+                    <table:Column width="11rem">
+                        <Label text="id" />
+                        <table:template>
+                            <Text text="{id}" wrapping="false" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="11rem">
+                        <Label text="desc" />
+                        <table:template>
+                            <Text text="{description}" wrapping="false" />
+                        </table:template>
+                    </table:Column>
+
+                </table:columns>
+
+            </table:Table>
+        </content>
+    </Page>
+</mvc:XMLView>

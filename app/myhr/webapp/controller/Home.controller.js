@@ -10,6 +10,7 @@ sap.ui.define([
         return BaseController.extend("com.sap.myhr.controller.Home", {
             onInit: function () {
 
+                this.getView().setBusy(true);
             }
         });
     });

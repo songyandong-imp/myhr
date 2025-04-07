@@ -75,7 +75,7 @@
         "settings": {
           "bundleName": "com.sap.myhr.i18n.i18n",
           "async": true,
-					"fallbackLocale": "zh",
+          "fallbackLocale": "zh",
           "supportedLocales": [
             "en",
             "zh"
@@ -121,6 +121,11 @@
           "pattern": "menu",
           "name": "menu",
           "target": "menu"
+        },
+        {
+          "pattern": "jdBase",
+          "name": "jdBase",
+          "target": "jdBase"
         }
       ],
       "targets": {
@@ -131,6 +136,10 @@
         "menu": {
           "viewId": "menu",
           "viewName": "/settings/menu"
+        },
+        "jdBase": {
+          "viewId": "jdBase",
+          "viewName": "/recruitManagerment/recruitPage"
         }
       }
     }
